@@ -1,5 +1,6 @@
 package bootcamp.microservices.app.clientcredit.documents;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,9 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
+
 @Data
 @Document
-public class ClientCredit {
+public class ClientCredit implements Serializable {
+
+	private static final long serialVersionUID = -9167188395924546467L;
 
 	private String id;
 
