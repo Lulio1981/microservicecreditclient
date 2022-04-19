@@ -44,7 +44,7 @@ public class ClientCreditServiceImpl implements ClientCreditService {
 
 	@Override
 	public Mono<ClientCredit> save(ClientCredit clientCredit) {
-		return clientCreditRepository.findByClient(clientCredit.getClient())
+		return clientCreditRepository.findByIdClient(clientCredit.getIdClient())
 				.switchIfEmpty(clientCreditRepository.save(clientCredit));
 	}
 
@@ -62,6 +62,11 @@ public class ClientCreditServiceImpl implements ClientCreditService {
 			c.setModifyDate(new Date());
 			return clientCreditRepository.save(c);
 		}).switchIfEmpty(Mono.error(new CustomNotFoundException("ClientCredit not found")));
+	}
+
+	@Override
+	public Mono<ClientCredit> findByIdClient(String idClient) {
+		return clientCreditRepository.findByIdClient(idClient);
 	}
 
 }

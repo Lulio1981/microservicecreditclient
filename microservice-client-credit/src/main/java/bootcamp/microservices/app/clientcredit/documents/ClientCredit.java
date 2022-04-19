@@ -19,7 +19,7 @@ public class ClientCredit implements Serializable {
 
 	private String creditNumber;
 
-	private Client client;
+	private String idClient;
 
 	private Double creditAmount;
 
