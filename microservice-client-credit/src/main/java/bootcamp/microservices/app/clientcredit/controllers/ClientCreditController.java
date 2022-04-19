@@ -41,15 +41,15 @@ public class ClientCreditController {
 	public Mono<ClientCredit> updateClientCredit(@RequestBody ClientCredit clientCredit) {
 		return clientCreditService.update(clientCredit);
 	}
-	
+
 	@DeleteMapping
 	public Mono<ClientCredit> deleteClientCredit(@Valid @RequestBody ClientCredit clientCredit) {
 		return clientCreditService.deleteLogic(clientCredit);
 	}
-	
+
 	@GetMapping("/idClient/{idClient}")
-	public Mono<ClientCredit> searchByIdClient(@PathVariable String id) {
-		return clientCreditService.findByIdClient(id);
+	public Mono<ClientCredit> searchByIdClient(@PathVariable String idClient) {
+		return clientCreditService.findByIdClient(idClient);
 	}
 
 }
